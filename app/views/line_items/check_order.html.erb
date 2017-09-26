@@ -1,0 +1,44 @@
+
+ <%= stylesheet_link_tag "post.css" %>
+
+<div class="sub-content"></div>
+
+<h1>주문</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>카페</th>
+      <th>메뉴</th>
+      <th>사이즈</th>
+      <th>수량</th>
+      <th>요청</th>
+      <th>승인/거부</th>
+      <th>시각</th>
+    </tr>
+  </thead>
+
+  <tbody>
+     <% @my_order.each do |p| %>
+       <% unless p.waiting == nil %>
+        <tr>
+          <td><%= p.shop.name %></td>
+          <td><%= p.product.name %></td>
+          <td><%= p.size %></td>
+          <td><%= p.quantity %></td>
+          <td><%= p.request %></td>
+          <td>
+          <% if p.waiting == 1 %>
+            대기
+          <% elsif p.waiting == 2 %>
+            승인
+          <% elsif p.waiting == 3 %>
+            거부
+          <% end %>
+          </td>
+          <td><%= p.updated_at %></td>
+          </tr>
+        <% end %>
+    <% end %>
+  </tbody>
+</table>

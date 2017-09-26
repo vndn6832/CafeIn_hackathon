@@ -1,0 +1,11 @@
+<%= stylesheet_link_tag "list.css" %>
+<div class="sub-content">
+<div id=menu>
+    <div class="mini-gap"></div>
+    <img src="/image/heart.png">
+
+<% @show.each do |show| %>
+  <a href = '/show_product/<%= show.shop_id%>'style= "font-size: 30px"><%= show.name %></a>
+<% end %>
+</div>
+</div>

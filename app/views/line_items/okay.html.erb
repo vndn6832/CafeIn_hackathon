@@ -1,0 +1,37 @@
+
+ <%= stylesheet_link_tag "post.css" %>
+
+<div class="sub-content">
+
+<h1>주문서</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>주문자</th>
+      <th>메뉴</th>
+      <th>사이즈</th>
+      <th>수량</th>
+      <th>주문시각</th>
+      <th>승인/거부</th>
+    </tr>
+  </thead>
+
+  <tbody>
+     <% @chosen_product.each do |p| %>
+      <tr>
+         <td><%= p.user.username %></td>
+        <td><%= p.product.name %></td>
+        <td><%= p.size %></td>
+        <td><%= p.quantity %></td>
+        <td><%= p.updated_at %></td>
+        <td>
+        <a href = "/okay/accept/<%= p.id%>">승인</a>
+        <a href = "/okay/deny/<%= p.id%>">거부</a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>

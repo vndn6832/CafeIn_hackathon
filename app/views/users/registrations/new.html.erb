@@ -1,0 +1,36 @@
+<div class="sub-content">
+<h2>회원 가입</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="field">
+    <%= f.label :이메일 %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :닉네임 %><br />
+    <%= f.text_field :username, autofocus: true %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :패스워드 %>
+    <% if @minimum_password_length %>
+    <em>(최소<%= @minimum_password_length %> 글자 이상)</em>  
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :패스워드확인 %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "회원가입 하기" %>
+  </div>
+<% end %>
+
+<a href="/users/sign_in">저는 이미 회원이에요!</a>
+</div>

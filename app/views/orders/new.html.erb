@@ -1,0 +1,21 @@
+<div class="sub-content">
+<%= form_for(@order) do |f| %>
+  <p>
+    <%= f.label :이름 %><br>
+    <%= f.text_field :name, required: true, autofocus: true %>
+  </p>
+  <p>
+    <%= f.label :이메일 %><br>
+    <%= f.email_field :email %>
+  </p>
+  <p>
+    <%= f.label :주소 %><br>
+    <%= f.text_area :address %>
+  </p>
+  <p>
+    <input type="hidden" name="shop_id" value = "<%= @shop_id %>">
+    <input type="hidden" name="cart_id" value = "<%= @current_cart.id %>">
+    <input type = "submit" name = "commit" vlaue = "승인">
+  </p>
+<% end %>
+</div>

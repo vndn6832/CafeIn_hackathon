@@ -1,0 +1,21 @@
+<%= stylesheet_link_tag "list.css" %>
+
+
+<!-- Main Menu Screen -->
+<div class="sub-content">
+<div id=menu>
+    <div class="mini-gap"></div>
+    <img src="/image/cafe.png">
+
+    <!--<a id="newgame_menu">new game</a>-->
+    <!--<a id="setting_menu">settings</a>-->
+    <% @shop.each do |p| %>
+     <a href = "/show_product/<%= p.id %>" style= "font-size: 30px"><%= p.Name %></a>
+  <% end %>
+</div>
+</div>
+
+<!--
+<div id="debug" style="font-size: 16px; color: #FFF;"></div>
+-->
+

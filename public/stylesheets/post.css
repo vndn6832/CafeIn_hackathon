@@ -1,0 +1,46 @@
+
+
+/*Responsive table*/
+table { 
+  width: 90%;
+  max-width: 700px;
+  margin: 50px auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 2px solid #ed1c40;
+  border-radius: .25rem;
+}
+
+tr, td, th { 
+  padding: 8px; 
+  text-align: left; 
+}
+
+/* Zebra striping */
+/*tr:nth-of-type(odd) { */
+/*  background: ; */
+/*}*/
+td{
+  background-color: white;
+  font-family: 'Hanna', sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+}
+th { 
+  background: #ed1c40; 
+  font-weight: bold; 
+  color:white;
+}
+
+h1 a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.field  input{
+  width: 75%;
+}
+.field textarea{
+  width:75%;
+  height: 100px;
+}

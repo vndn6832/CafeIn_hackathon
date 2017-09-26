@@ -1,0 +1,23 @@
+<%= stylesheet_link_tag "list.css" %>
+
+<div class="sub-content">
+<!--나중에 지울 것!!-->
+<div id=menu>
+  <div class="mini-gap"></div>
+    <img src="/image/cafe.png">
+    <div class="search">
+    <%= form_tag(result_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Cafes", :style => "color: black" %>
+      <!--<%= submit_tag "Search", :name => nil %>-->
+      <%= button_tag(type: "submit", class: "btn pink") do %>Search<i class="icon-repeat"></i><% end %>
+    <% end %>
+    </div>
+    <div class="gap"></div>
+  <% @shops.each do |p| %>
+    <a href = "/shops/<%= p.id %>" class="text"><%= p.name %></a>
+  <% end %>
+  </div>
+    
+
+</div>
+

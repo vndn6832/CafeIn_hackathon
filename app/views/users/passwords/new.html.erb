@@ -1,0 +1,17 @@
+<div class = "sub_content"><br><br>
+<h2>비밀번호를 잊으셨나요?</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= f.error_notification %>
+  <div class="input email required user_email">
+    <label class="email required" for="user_email"><abbr title="required">*</abbr> 이메일</label>
+    <input class="string email required" autofocus="autofocus" required="required" aria-required="true" type="email" value="" name="user[email]" id="user_email">
+    </div>
+  <div class="form-actions">
+    <input type="submit" name="commit" value="보내주세요!" class="btn">
+  </div>
+<% end %>
+
+<a href="/users/sign_in">로그인 하기</a><br>
+<a href="/users/sign_up">회원가입 하기</a>
+</div>

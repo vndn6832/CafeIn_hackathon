@@ -1,0 +1,38 @@
+<div class="sub-content">
+<h2>프로필 수정</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="input email required disabled user_email">
+      <label class="email required disabled" for="user_email"><abbr title="required">*</abbr> 이메일</label></br>
+      <input class="string email required disabled" disabled="disabled" required="required" aria-required="true" type="email" value="1@aa" name="user[email]" id="user_email">
+    </div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+    <% end %>
+    <div class="input string required user_username">
+      <label class="string required" for="user_username"><abbr title="required">*</abbr> 이름</label></br>
+      <input class="string required" autofocus="autofocus" required="required" aria-required="true" type="text" value="1" name="user[username]" id="user_username">
+    </div>
+    <div class="input password optional user_password field_with_hint">
+      <label class="password optional" for="user_password">비밀번호</label></br>
+      <input class="password optional" type="password" name="user[password]" id="user_password">
+    </div>
+    <div class="input password optional user_password_confirmation">
+      <label class="password optional" for="user_password_confirmation">비밀번호 확인</label></br>
+      <input class="password optional" type="password" name="user[password_confirmation]" id="user_password_confirmation">
+    </div>
+    <div class="input password required user_current_password field_with_hint">
+      <label class="password required" for="user_current_password"><abbr title="required">*</abbr> 현재 비밀번호</label></br>
+      <input class="password required" required="required" aria-required="true" type="password" name="user[current_password]" id="user_current_password">
+  </div>
+  </br>
+  <div class="form-actions">
+    <%= f.button :submit, "수정하기" %>
+  </div>
+<% end %>
+
+<%= link_to "뒤로 가기", :back %>
+</div>

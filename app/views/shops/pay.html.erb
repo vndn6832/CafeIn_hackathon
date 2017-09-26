@@ -1,0 +1,32 @@
+<div class="sub-content">
+  <% if flash[:notice] %>
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <% @products.each do |product| %>
+  
+  <form action = "/line_items/<%= product.id %>" method = "post">
+    
+        <h3>이름 : <%= product.name %></h3>
+        <h3>가격 : <%= product.price %>원</h3>
+          수량 : <input type = "number" min = "1" max = "100" step = "1" name = "quantity">
+          사이즈 S<input type = "radio" name = "size" value = "S"/>
+                M<input type = "radio" name = "size" value = "M"/>
+                L<input type = "radio" name = "size" value = "L"/>
+                <input type="hidden" name="shop_id" value= <%= product.shop_id %>>
+   
+  <!--<div class="btn-group btn-group-justified footer" role="group" aria-label="...">-->
+    <div class="gap"></div>
+    <div class="btn-group" role="group">
+      <input type = "submit" value = "장바구니!" class = "btn pink"/>
+    </div>
+    <div class="btn-group" role="group">
+      <button type="button", class="btn green">바로 결제</button>
+    </div>
+    
+  </form>
+  </div>
+  <% end %>
+</div>

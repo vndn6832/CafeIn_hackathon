@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workspace</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"
+    integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+    crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag "main.css" %>
+         
+    <!-- www.google.com/fonts -->
+<link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+  
+  <div class="content">
+  <!--  <div class="bu">-->
+  <!--			<button>button 3d</button>-->
+  <!--			<button>button 3d</button>-->
+  <!--			<button>button 3d</button>-->
+		<!--</div>-->
+		
+	
+  <header>
+    <nav id="mainNav" class="navar navbar-fixed-top">
+     
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only navbar-default">Toggle navigation</span>메뉴<i class="fa fa-bars"></i>
+				</button>
+			<ul class="nav navbar-nav">
+				<li><a class="navbar-brand" href="/">CafeIn</a></li>
+				<!--<img id="logo" src="/image/brand.png" alt="logo" />-->
+<!--				<li><%= link_to href: '/' do %>-->
+<!--    <%= image_tag '/image/brand.png', class:"navbar-brand", alt: 'a face that is unnervingly happy'%>-->
+<!--<% end %></li>-->
+				</ul>
+			</div>
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					 <% if user_signed_in? %>
+						<li><a><strong><%= current_user.username %></strong></a></li>
+						<li><%= link_to '프로필 수정', edit_user_registration_path %></li>
+            <li><%= link_to '로그아웃', destroy_user_session_path, method: :delete, :data => {:confirm => 'Are you sure?'} %></li>
+            <li><%= link_to '즐겨찾는 카페', favorites_path %></li>
+            <li><%= link_to '장바구니', cart_path(:id => @current_cart.id) %></li>
+            <% if current_user.id > 20 %>
+              <li><%= link_to '주문', my_order_path %></li>
+            <% end %>
+          <% else %>
+          	<li><%= link_to '로그인', new_user_session_path %></li>
+          	<li><%= link_to '회원가입', new_user_registration_path %></li>
+          <% end %>
+          <li><%= link_to 'Q&A', posts_path %></li>
+          <!--<li><a href = 'products'>가맹점주 메뉴 등록</a></li>-->
+				</ul>
+			</div>
+			 
+		</div>
+
+	</nav>
+	
+    
+  </header>
+
+<%= yield %>
+
+</div>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>

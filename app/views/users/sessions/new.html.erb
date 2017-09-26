@@ -1,0 +1,26 @@
+<div class="sub-content">
+<h2>로그인</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-inputs">
+    <div class="input email optional user_email">
+      <label class="email optional" for="user_email">이메일</label>
+      <input class="string email optional" autofocus="autofocus" type="email" value="" name="user[email]" id="user_email">
+    </div>
+    <div class="input password optional user_password">
+      <label class="password optional" for="user_password">비밀번호</label>
+      <input class="password optional" type="password" name="user[password]" id="user_password">
+      </div>
+    <label class="boolean optional checkbox" for="user_remember_me">
+      <input class="boolean optional" type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">저를 기억해 주세요!
+    </label>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "로그인 하기" %>
+  </div>
+  <a href="/users/sign_up">회원가입 하기</a><br>
+  <a href="/users/password/new">비밀번호를 잊으셨나요?</a>
+<% end %>
+
+</div>

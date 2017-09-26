@@ -1,0 +1,32 @@
+<div class="sub-content">
+<h2>Cart show</h2>
+<ul>
+
+
+  <% @cart.line_items.each do |line_item| %>
+    <li>상품명: <%= line_item.product.name %>/ 가격: <%= line_item.product.price %>/ 수량: <%= line_item.quantity %>/ 사이즈: <%= line_item.size %>
+
+    <ul>
+      <li>
+        <%= link_to "하나 더하기", line_item_add_path(:id => line_item), method: :post %>/
+        <%= link_to "하나 빼기", line_item_reduce_path(:id => line_item), method: :post %>
+      </li>
+      <li>
+        <%= link_to "상품 삭제", line_item_path(line_item), method: :delete %>
+      </li>
+    </ul>
+  <% end %>
+</ul>
+
+<h3>총 가격: <%= @cart.sub_total %></h3>
+
+<form action = "/line_items/new/<%= @cart.id %>" method = "get">
+  <h4>요청사항</h4>
+  <textarea name = "request" cols = "50" rows = "5"></textarea><br>
+<input type = "submit" value = "주문하기" class="btn pink"/>
+</form>
+
+<div class="mini-gap"></div>
+<%= link_to "장바구니 비우기", cart_path(@current_cart),method: :delete, data: {confirm: "장바구니를 비우시겠습니까?"}, class: "btn green" %>
+</div>
+

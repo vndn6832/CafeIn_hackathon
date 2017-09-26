@@ -1,0 +1,49 @@
+
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
+  <%= stylesheet_link_tag "list.css" %>
+  <div class="sub-content">
+    
+  <h2><%= @shop.name %></h2> <a href = '/shops'><h4>Return List</h4></a>
+   <div id=menu>
+    <div class="mini-gap"></div>
+    <img src="/image/menu.png">
+  <% @products.each do |product| %>
+    <a href = '/pay/<%= product.id %>'><%= product.name %></a>
+  <% end %>
+  </div>
+<div class= "blocks">
+<div class="mini-gap"></div>
+  <% if @favorite.present? == false %>
+    <form action='/shops/<%= @shop.id %>/favorites' method="post">
+      <input class="img" type="image"  src="/image/d_heart.png" onsubmit="submit();" />
+    </form>
+  <% else %>
+    <%= link_to "삭제하기", shop_favorite_path(shop_id: @shop.id), method: :delete %>
+  <% end %>
+
+  
+
+<!--Comments-->
+<div class="sub-content">
+<h3>별점과 함께 댓글을 남겨주세요</h3>
+<div class="gap"></div>
+
+    <%= form_tag("/shops/#{@shop.id}/comments", method: "post") do %>
+      <%= text_field_tag(:content) %>
+      <%= submit_tag("Submit") %>
+    <% end %>
+<div class="gap"></div>
+
+<% @comments.each do |comment| %>
+  <%= comment.content %>
+    <% if comment.user_id == current_user.id %>
+      <a href = '/shops/<%= @shop.id %>/comments/<%= comment.id %>'
+         data-method = 'delete' 
+         data-confirm = '댓글을 삭제합니다.'>[x]
+      </a>
+      </div>
+      </div>
+    <% end %>
+  <br>
+<% end %>
+</div>

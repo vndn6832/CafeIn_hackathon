@@ -1,0 +1,17 @@
+<div class="sub-content">
+      <div class="gap"></div>
+
+  <img src="/image/pixel2.png" class="home"><br>
+  
+  <div class="gap"></div>
+    <div class="bu">
+    	<% if user_signed_in? && current_user.id <= 20 %>
+    	<a href="/line_items/okay"><button class="pink">주문서</button></a> 
+    	<% else %>
+      <a href="/location"><button class="pink">ORDER</button></a> 
+      <a href="/shops"><button class="green">SEARCH</button></a>
+      <% end %>
+		</div>
+		<br>
+</div>
+
